@@ -15,8 +15,3 @@ Class player:
 
     - shooting:
         * append X or 0 into board
-
-
-
-rzecz1 = ToDoItem(posprzatac, 22.10.10231)
-rzecz2 = ToDoItem()

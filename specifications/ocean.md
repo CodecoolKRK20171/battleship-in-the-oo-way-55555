@@ -2,7 +2,8 @@ Class Ocean:
 
 # Attributes:
 
-    - board 
+    - board
+    - ships
 
 
 ## Methods:

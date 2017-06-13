@@ -22,10 +22,13 @@ class Ocean:
         self.ships.append(Ship(positions))
 
     def fill_board(self):
-        for i in range(0,10):
-            self.board.append([' ']*10)
+
+        letters = ['  A ', '  B ', '  C ', '  D ', '  E ', '  F ', '  G ', '  H ', '  I ', '  J ']
+        print(' '.join(letters))
+        for i in range(0, 10):
+            self.board.append(['  ~  ']*10 + [str(i+1)])
 
 
-        for ship in self.ships:
-            for square in ship.squares:
-                self.board[square.column][square.row] = str(square)
+        # for ship in self.ships:
+        #     for square in ship.squares:
+        #         self.board[square.column][square.row] = str(square)

@@ -20,20 +20,27 @@ __main.py__
 _square.py_
 ### Class Square
 
+
 __Attributes__
 
 * `is_marked`
+Bool with starting False value.
 
-Bool with starting False value
+* `shot`
+Tuple of int, where player try hit the ship of opponent.
 
 
 __Instance methods__
 
 * `__init__(self, row, column, is_marked)`
-Construct a piece of ship, and checking if player try shoot on this positions before
+Construct a piece of ship, and checking if player try shoot on this positions before.
 
 * `life`
-Check if player still have ships/squares on board
+Check if player still have ships/squares on board.
+
+* `is_marked`
+Check if player try to hit in the same square of board
+
 
 
 
@@ -83,3 +90,9 @@ __Attributes__
 
 * `name`
 Contain name of Players
+
+
+__Instance methods__
+
+* `put_ships_on_board`
+Fill board with player ships

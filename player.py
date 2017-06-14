@@ -1,4 +1,11 @@
+from ocean import Ocean
+from ship import Ship
+from square import Square
+
 class Player:
+    def __init__(self):
+        self.player1 =[]
+
     def player_add_ship (player="player1"): #tak samo bedzie dla player2
         print("Welcome")
         ship_list = ["1. Destroyer", "2. Submarine", "3. Cruiser", "4. Battleship", "5. Carrier"]
@@ -8,6 +15,8 @@ class Player:
                 print(i)
             chose_ship = (input("Chose ship to input:\n"))
             if chose_ship == "1" and "1. Destroyer" in ship_list:
+                ocean_player = Ocean()
+                ocean_player.add_ship (2, 3, 4, True)
                 #potrzebna funkcja wstawiania statku
                 #prawdopodobnie ocean.add_ship()
                 ship_list.remove("1. Destroyer")
@@ -28,6 +37,5 @@ class Player:
                 #potrzebna funkcja wstawiania statku
                 ship_list.remove("5. Carrier")
 
-            if ship_list != []: print("Next choose\n")
+            if ship_list != []: print("Next choose:")
             pass
-    pass

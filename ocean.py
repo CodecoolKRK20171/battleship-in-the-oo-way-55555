@@ -1,3 +1,5 @@
+from ship import Ship
+
 
 class Ocean:
 

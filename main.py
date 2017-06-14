@@ -25,6 +25,11 @@ def main():
         ocean_opponent = Ocean()
         ocean_player = Ocean()
 
+        #Moje R.
+        player = Player()
+        player.player_add_ship()
+
+
         print("===================================================")
         print("Your ships")
         print("===================================================")

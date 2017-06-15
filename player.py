@@ -18,14 +18,20 @@ class Player:
         for key in self.player_ships:
 
             print("Enter coordinates of" + " " + key)
-            print("(1) Horizontal\n(2) Vertical")
 
-            horizontal = input("Select direction:\n")
+            while True:
+                print("(1) Horizontal\n(2) Vertical")
 
-            if horizontal == "1":
-                horizontal = True
-            elif horizontal == "2":
-                horizontal = False
+                horizontal = input("Select direction:\n")
+
+                if horizontal == "1":
+                    horizontal = True
+                    break
+                elif horizontal == "2":
+                    horizontal = False
+                    break
+                else:
+                    continue
 
             while True:
                 pos_x = int(input("Enter x position:\n"))

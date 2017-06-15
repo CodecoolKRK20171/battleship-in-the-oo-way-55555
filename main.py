@@ -26,9 +26,6 @@ def main():
         new_player = input("Enter name of player 1:\n")
         new_player2 = input("Enter name of player 2:\n")
 
-        player1 = Player(new_player)
-        player2 = Player(new_player2)
-
         ocean_opponent = Ocean()
         ocean_player = Ocean()
 

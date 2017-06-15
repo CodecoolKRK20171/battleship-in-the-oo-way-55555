@@ -12,5 +12,8 @@ class Square:
         if self.is_marked:
             mark = ' X '
         else:
-            mark = '0'
+            mark = ' 0 '
         return mark
+
+    def mark(self):
+        self.is_marked = False

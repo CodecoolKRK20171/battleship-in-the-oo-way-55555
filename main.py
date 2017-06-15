@@ -24,37 +24,33 @@ def main():
         os.system('clear')
 
         new_player = input("Enter name of player 1:\n")
-        new_player2 = input("Enter name of player 2:\n")
+        # new_player2 = input("Enter name of player 2:\n")
 
         statek = player.Player(new_player)
         nowe_statki = statek.starting_positions_ships()
 
         ocean_player = Ocean()
-        print(nowe_statki[0])
-        # nowe_statki[0][0], nowe_statki[0][1], nowe_statki[0][2], nowe_statki[0][3]
-        ocean_player.add_ship(*nowe_statki[0])
+
+        for s in nowe_statki:
+            ocean_player.add_ship(*s)
+
+        print("===================================================")
+        print("Your ships")
+        print("===================================================")
+
+        ocean_player.fill_board()
+        print(ocean_player)
+        print(" ")
+        shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
+        print(shot)
+        ocean_player.shot(*shot)
         ocean_player.fill_board()
         print(ocean_player)
 
-        print(statek)
+        print("===================================================")
+        print("Try hit ship of your opponent")
+        print("===================================================")
 
-        # ocean_opponent = Ocean()
-        # ocean_player = Ocean()
-        #
-        # print("===================================================")
-        # print("Your ships")
-        # print("===================================================")
-        #
-        # ocean_player.fill_board()
-        # print(ocean_player)
-        #
-        # print("===================================================")
-        # print("Try hit ship of your opponent")
-        # print("===================================================")
-        #
-        # ocean_opponent.fill_board()
-        # print(ocean_opponent)
-        ocean_player.add_ship()
     else:
         print('Wrong sign, try again')
 

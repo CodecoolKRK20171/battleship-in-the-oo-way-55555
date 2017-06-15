@@ -1,5 +1,5 @@
 from ship import Ship
-import player
+import square
 
 
 class Ocean:
@@ -14,23 +14,28 @@ class Ocean:
     def add_ship(self, position_x, position_y, size, is_horizontal=False):
         positions = []
 
-        for i in range(size):
+        for i in range(size-1):
+            positions.append((position_x-1, position_y-1))
             if is_horizontal:
-                print("ok")
                 position_x += 1
             else:
-                print("nie sok")
                 position_y += 1
-            positions.append((position_x, position_y))
-            print(positions)
+            positions.append((position_x-1, position_y-1))
 
         positions = tuple(positions)
-        print(positions)
+        self.ships.append(Ship(positions))
+
+    def shot(self, position_x, position_y):
+
+        positions = [(position_x-1, position_y-1)]
+        positions = tuple(positions)
+
         self.ships.append(Ship(positions))
 
     def fill_board(self):
+        self.board=[]
 
-        letters = [' A ', ' B ', ' C ', ' D ', ' E ', ' F ', ' G ', ' H ', ' I ', ' J ']
+        letters = [' A', ' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J']
         print(' '.join(letters))
         for i in range(0, 10):
             self.board.append([' ~ ']*10 + [str(i+1)])

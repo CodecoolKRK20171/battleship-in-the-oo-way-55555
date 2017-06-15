@@ -10,6 +10,8 @@ class Ocean:
         self.shots = []
 
     def __str__(self):
+        letters = [' A', ' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J']
+        print(' '.join(letters))
         return '\n'.join([''.join(row) for row in self.board])
 
     def add_ship(self, position_x, position_y, size, is_horizontal=False):
@@ -36,8 +38,6 @@ class Ocean:
     def fill_board(self):
         self.board = []
 
-        letters = [' A', ' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J']
-        print(' '.join(letters))
         for i in range(0, 10):
             self.board.append([' ~ ']*10 + [str(i+1)])
 

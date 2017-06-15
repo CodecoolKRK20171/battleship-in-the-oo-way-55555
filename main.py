@@ -32,8 +32,8 @@ def main():
 
             ocean_player1 = Ocean()
             for s in add_ships:
-                print(s)
                 ocean_player1.add_ship(*s)
+            ocean_player1.fill_board()
 
         os.system('clear')
 
@@ -46,35 +46,37 @@ def main():
             for item in add_ships:
                 ocean_player2.add_ship(*item)
             ocean_player2.fill_board()
-            print(ocean_player2)
+            # print(ocean_player2)
 
             while True:
+                os.system('clear')
+                print("===================================================")
+                print("Try hit ship of your opponent")
+                print("===================================================")
+                print(ocean_player2)
+
                 print("Enter coordinates to fire commander!")
                 turn_player1 = (int(input("Enter x coordinate:\n")), int(input("Enter y coordinate:\n")))
                 ocean_player2.shot(*turn_player1)
 
                 ocean_player2.fill_board_shot()
                 print(ocean_player2)
-    # print("===================================================")
-        # print("Your ships")
-        # print("===================================================")
-        #
-        # ocean_player.fill_board()
-        # print(ocean_player)
-        # print(" ")
-        #
-        # shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
-        # print(shot)
-        # ocean_player.shot(*shot)
-        # ocean_player.fill_board()
-        # print(ocean_player)
-        #
-        # print("===================================================")
-        # print("Try hit ship of your opponent")
-        # print("===================================================")
+                print("===================================================")
+                print("Your ships")
+                print("===================================================")
+                print(ocean_player1)
 
     else:
         print('Wrong sign, try again')
+    # ocean_player.fill_board()
+    # print(ocean_player)
+    # print(" ")
+    #
+    # shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
+    # print(shot)
+    # ocean_player.shot(*shot)
+    # ocean_player.fill_board()
+    # print(ocean_player)
 
 
 if __name__ == "__main__":

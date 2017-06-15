@@ -52,11 +52,11 @@ class Player:
 
             self.starting_positions.append(positions)
 
-            print("")
+            print("\n")
             ocean_player.add_ship(*positions)
             ocean_player.fill_board()
             print(ocean_player)
-            print("")
+            print("\n")
+            pauza = input()
 
-        print(self.starting_positions)
         return self.starting_positions

@@ -34,14 +34,16 @@ class Player:
                     continue
 
             while True:
-                pos_x = int(input("Enter x position:\n"))
-                if pos_x > 10 or pos_x <= 0:
-                    continue
-                else:
+                pos_x = input("Enter x position (A-J):\n").upper()
+                list_x = {"A":1,"B":2,"C":3,"D":4,"E":5,"F":6,"G":7,"H":8,"I":9,"J":10}
+                if pos_x in list_x:
+                    pos_x = list_x[pos_x]
                     break
+                else:
+                    continue
 
             while True:
-                pos_y = int(input("Enter y position:\n"))
+                pos_y = int(input("Enter y position(1-10):\n"))
                 if pos_y > 10 or pos_y <= 0:
                     continue
                 else:

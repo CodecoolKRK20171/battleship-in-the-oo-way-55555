@@ -1,6 +1,3 @@
-import ship
-
-
 class Square:
     def __init__(self, row, column):
         self.is_marked = True
@@ -15,5 +12,5 @@ class Square:
             mark = ' 0 '
         return mark
 
-    def mark(self):
+    def mark_shot(self):
         self.is_marked = False

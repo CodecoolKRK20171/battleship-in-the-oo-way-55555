@@ -1,5 +1,4 @@
 from ship import Ship
-# import square
 
 
 class Ocean:
@@ -49,5 +48,16 @@ class Ocean:
 
         for shot in self.shots:
             for square in shot.squares:
-                square.mark()
-                self.board[square.column][square.row] = str(square)
+                square.mark_shot()
+
+                if self.board[square.column][square.row] == ' X ':
+
+                    self.board[square.column][square.row] = str(square)
+                    print('We go it commander! You hit the part of ship!')
+                    pauza = input()
+
+                elif self.board[square.column][square.row] == ' ~ ':
+
+                    self.board[square.column][square.row] = str(square)
+                    print('Bad luck commander, this ocean took our ammo!')
+                    pauza = input()

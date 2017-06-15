@@ -1,7 +1,7 @@
 from ocean import Ocean
 import ship
 import square
-from player import Player
+import player
 import os
 
 
@@ -26,6 +26,9 @@ def main():
         new_player = input("Enter name of player 1:\n")
         new_player2 = input("Enter name of player 2:\n")
 
+        statek = player.Player(new_player)
+        statek.starting_positions_ships()
+
         ocean_opponent = Ocean()
         ocean_player = Ocean()
 
@@ -39,10 +42,6 @@ def main():
         print("===================================================")
         print("Try hit ship of your opponent")
         print("===================================================")
-
-        ocean_opponent.add_ship(4, 3, 3, True)
-        ocean_opponent.fill_board()
-        print(ocean_opponent)
 
     else:
         print('Wrong sign, try again')

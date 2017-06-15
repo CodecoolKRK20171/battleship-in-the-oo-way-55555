@@ -23,33 +23,44 @@ def main():
     if chose_number == '1':
         os.system('clear')
 
-        new_player = input("Enter name of player 1:\n")
-        # new_player2 = input("Enter name of player 2:\n")
+        player1 = input("Enter name of player 1:\n")
+        player2 = input("Enter name of player 2:\n")
 
-        statek = player.Player(new_player)
-        nowe_statki = statek.starting_positions_ships()
+        if player1 == player1:
+            player1_board = player.Player(player1)
+            add_ships = player1_board.starting_positions_ships()
 
-        ocean_player = Ocean()
+            ocean_player1 = Ocean()
+            for s in add_ships:
+                print(s)
+                ocean_player1.add_ship(*s)
 
-        for s in nowe_statki:
-            ocean_player.add_ship(*s)
+        os.system('clear')
+        if player2 == player2:
+            player2_board = player.Player(player2)
+            add_ships = player2_board.starting_positions_ships()
 
-        print("===================================================")
-        print("Your ships")
-        print("===================================================")
+            ocean_player2 = Ocean()
+            for item in add_ships:
+                ocean_player2.add_ship(*item)
 
-        ocean_player.fill_board()
-        print(ocean_player)
-        print(" ")
-        shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
-        print(shot)
-        ocean_player.shot(*shot)
-        ocean_player.fill_board()
-        print(ocean_player)
-
-        print("===================================================")
-        print("Try hit ship of your opponent")
-        print("===================================================")
+        # print("===================================================")
+        # print("Your ships")
+        # print("===================================================")
+        #
+        # ocean_player.fill_board()
+        # print(ocean_player)
+        # print(" ")
+        #
+        # shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
+        # print(shot)
+        # ocean_player.shot(*shot)
+        # ocean_player.fill_board()
+        # print(ocean_player)
+        #
+        # print("===================================================")
+        # print("Try hit ship of your opponent")
+        # print("===================================================")
 
     else:
         print('Wrong sign, try again')

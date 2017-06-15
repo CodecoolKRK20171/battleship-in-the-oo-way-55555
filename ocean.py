@@ -33,7 +33,7 @@ class Ocean:
         self.ships.append(Ship(positions))
 
     def fill_board(self):
-        self.board=[]
+        self.board = []
 
         letters = [' A', ' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J']
         print(' '.join(letters))

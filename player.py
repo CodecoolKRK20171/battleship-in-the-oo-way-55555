@@ -1,6 +1,3 @@
-from ocean import Ocean
-from ship import Ship
-from square import Square
 
 
 class Player:
@@ -31,9 +28,7 @@ class Player:
                          self.player_ships[key],
                          horizontal)
 
-            print(horizontal)
-            print(positions)
-            print(type(positions))
             self.starting_positions.append(positions)
 
         print(self.starting_positions)
+        return self.starting_positions

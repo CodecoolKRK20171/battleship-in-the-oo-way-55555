@@ -1,4 +1,5 @@
 from ship import Ship
+import player
 
 
 class Ocean:

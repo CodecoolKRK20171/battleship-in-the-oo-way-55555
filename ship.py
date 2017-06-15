@@ -1,3 +1,5 @@
+from square import Square
+
 
 class Ship:
     def __init__(self, positions):

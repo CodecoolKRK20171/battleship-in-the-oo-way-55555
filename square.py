@@ -1,3 +1,5 @@
+import ship
+
 
 class Square:
     def __init__(self, row, column):
@@ -8,7 +10,7 @@ class Square:
     def __str__(self):
 
         if self.is_marked:
-            mark = 'x'
+            mark = ' X '
         else:
             mark = '0'
         return mark

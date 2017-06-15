@@ -1,6 +1,6 @@
 from ocean import Ocean
-from ship import Ship
-from square import Square
+import ship
+import square
 from player import Player
 import os
 
@@ -16,11 +16,18 @@ def main_menu():
 
 
 def main():
+    os.system('clear')
     main_menu()
     chose_number = input("Enter number:\n")
 
     if chose_number == '1':
         os.system('clear')
+
+        new_player = input("Enter name of player 1:\n")
+        new_player2 = input("Enter name of player 2:\n")
+
+        player1 = Player(new_player)
+        player2 = Player(new_player2)
 
         ocean_opponent = Ocean()
         ocean_player = Ocean()
@@ -36,6 +43,7 @@ def main():
         print("Try hit ship of your opponent")
         print("===================================================")
 
+        ocean_opponent.add_ship(4, 3, 3, True)
         ocean_opponent.fill_board()
         print(ocean_opponent)
 

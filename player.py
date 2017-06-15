@@ -5,8 +5,8 @@ class Player:
 
     def __init__(self, name):
         self.name = name
-        self.player_ships = {"Carrier(5)": 5, "Battleship(4)": 4, "Cruiser(3)": 3,
-                             "Submarine(3)": 3, "Destroyer(3)": 2}
+        self.player_ships = {"Carrier(5)": 5}
+        """Battleship(4)": 4, "Cruiser(3)": 3, "Submarine(3)": 3, "Destroyer(3)": 2}"""
         self.starting_positions = []
 
     def __str__(self):
@@ -54,11 +54,11 @@ class Player:
 
             self.starting_positions.append(positions)
 
-            print("")
+            print("\n")
             ocean_player.add_ship(*positions)
             ocean_player.fill_board()
             print(ocean_player)
-            print("")
+            print("\n")
+            pauza = input()
 
-        print(self.starting_positions)
         return self.starting_positions

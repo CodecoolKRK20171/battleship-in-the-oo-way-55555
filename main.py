@@ -36,15 +36,26 @@ def main():
                 ocean_player1.add_ship(*s)
 
         os.system('clear')
+
         if player2 == player2:
+
+            ocean_player2 = Ocean()
             player2_board = player.Player(player2)
             add_ships = player2_board.starting_positions_ships()
 
-            ocean_player2 = Ocean()
             for item in add_ships:
                 ocean_player2.add_ship(*item)
+            ocean_player2.fill_board()
+            print(ocean_player2)
 
-        # print("===================================================")
+            while True:
+                print("Enter coordinates to fire commander!")
+                turn_player1 = (int(input("Enter x coordinate:\n")), int(input("Enter y coordinate:\n")))
+                ocean_player2.shot(*turn_player1)
+
+                ocean_player2.fill_board_shot()
+                print(ocean_player2)
+    # print("===================================================")
         # print("Your ships")
         # print("===================================================")
         #

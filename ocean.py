@@ -1,5 +1,5 @@
 from ship import Ship
-import square
+# import square
 
 
 class Ocean:
@@ -7,6 +7,7 @@ class Ocean:
     def __init__(self):
         self.ships = []
         self.board = []
+        self.shots = []
 
     def __str__(self):
         return '\n'.join([''.join(row) for row in self.board])
@@ -30,7 +31,7 @@ class Ocean:
         positions = [(position_x-1, position_y-1)]
         positions = tuple(positions)
 
-        self.ships.append(Ship(positions))
+        self.shots.append(Ship(positions))
 
     def fill_board(self):
         self.board = []
@@ -42,4 +43,11 @@ class Ocean:
 
         for ship in self.ships:
             for square in ship.squares:
+                self.board[square.column][square.row] = str(square)
+
+    def fill_board_shot(self):
+
+        for shot in self.shots:
+            for square in shot.squares:
+                square.mark()
                 self.board[square.column][square.row] = str(square)

@@ -17,13 +17,21 @@ class Player:
     def starting_positions_ships(self):
 
         for key in self.player_ships:
+            print("(1) Horizontal\n(2) Vertical")
+            horizontal = input("Select direction:\n")
+
+            if horizontal == "1":
+                horizontal = True
+            elif horizontal == "2":
+                horizontal = False
 
             print("Enter coordinates of" + " " + key)
             positions = (int(input("Enter x position:\n")),
                          int(input("Enter y position:\n")),
                          self.player_ships[key],
-                         input("Horizontal or vertical?"))
+                         horizontal)
 
+            print(horizontal)
             print(positions)
             print(type(positions))
             self.starting_positions.append(positions)

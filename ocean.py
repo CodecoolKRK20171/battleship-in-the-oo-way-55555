@@ -18,11 +18,8 @@ class Ocean:
 
     '''
 
-
     def __init__(self):
         self.ships = []
-
-        #self.fill_board()
         self.hp = 0
         self.board = self.fill_board()
         self.health_points = 17
@@ -40,6 +37,11 @@ class Ocean:
 
         return ocean_str
 
+<<<<<<< HEAD
+=======
+    def preview_ships(self, position_x, position_y, size, is_horizontal=False):
+        """Display board during putting ships on player ocean/board"""
+>>>>>>> 1c81ecf2333c49203b68c32e211fb2f68b0c21a5
 
     def preview_ships(self, position_x, position_y, size, is_horizontal=False):
         '''
@@ -56,6 +58,7 @@ class Ocean:
                 self.board[position_y][position_x-1].set_as_ship()
                 position_y += 1
 
+<<<<<<< HEAD
 
     def add_ships(self, position_x, position_y, size, is_horizontal=False):
         '''
@@ -64,6 +67,15 @@ class Ocean:
         for i in range(size):
 
             if is_horizontal:
+=======
+    def add_ships(self, position_x, position_y, size, is_horizontal=False):
+        """Method take starting position of ship and append it to ocean board"""
+
+        for i in range(size):
+
+            if is_horizontal:
+
+>>>>>>> 1c81ecf2333c49203b68c32e211fb2f68b0c21a5
                 self.board[position_y][position_x-1].set_as_ship()
                 position_x += 1
 
@@ -71,13 +83,20 @@ class Ocean:
                 self.board[position_y][position_x-1].set_as_ship()
                 position_y += 1
 
+<<<<<<< HEAD
 
     def shot(self, position_x, position_y):
         '''
         Method to shoot ships
         '''
+=======
+    def shot(self, position_x, position_y):
+        """Method take coordinates to put square on board, check if player hit ship or not and return message
+        Method also check if players still have ships on board"""
+
+>>>>>>> 1c81ecf2333c49203b68c32e211fb2f68b0c21a5
         self.board[position_y][position_x-1].fill_square()
-        if self.board[position_y][position_x-1].is_ship == False:
+        if self.board[position_y][position_x-1].is_ship is False:
             print("MISS")
 
         else:
@@ -87,19 +106,32 @@ class Ocean:
             if self.health_points == 0:
                 sys.exit("GAME OVER")
 
+<<<<<<< HEAD
 
     def fill_board(self):
         '''
         Method to fill board list
         '''
         self.board = []
+=======
+    def fill_board(self):
+        """Fill board with X which represents our ships"""
+
+        self.board = []
+
+>>>>>>> 1c81ecf2333c49203b68c32e211fb2f68b0c21a5
         letters = [' A ', ' B ', ' C ', ' D ', ' E ', ' F ', ' G ', ' H ', ' I ', ' J ']
         self.board.append(letters)
         for i in range(1, 11):
-
             self.board.append([])
+<<<<<<< HEAD
             for j in range(0,10):
 
                 self.board[i].append(Square(i,j))
 
+=======
+
+            for j in range(0, 10):
+                self.board[i].append(Square(i, j))
+>>>>>>> 1c81ecf2333c49203b68c32e211fb2f68b0c21a5
         return self.board

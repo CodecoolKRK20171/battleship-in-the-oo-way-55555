@@ -16,18 +16,23 @@ class Player:
 
     def __init__(self, name):
         self.name = name
-        self.player_ships = {"Carrier(5)": 5, "Battleship(4)": 4, "Cruiser(3)": 3,
-                             "Submarine(3)": 3, "Destroyer(3)": 2}
+        self.player_ships = {"Carrier(5)": 5, "Battleship(4)": 4, "Cruiser(3)": 3, "Submarine(3)": 3, "Destroyer(3)": 2}
         self.starting_positions = []
 
     def __str__(self):
         return self.name
 
     def starting_positions_ships(self):
+<<<<<<< HEAD
         '''
         Method to put starting coordinate on board
         '''
+=======
+        """ Method take starting coordintes of ship from user and return tuple"""
+
+>>>>>>> 1c81ecf2333c49203b68c32e211fb2f68b0c21a5
         ocean_player = Ocean()
+
         os.system('clear')
         print(ocean_player)
         for key in self.player_ships:
@@ -47,13 +52,12 @@ class Player:
                 else:
                     continue
 
-
                 positions = (int(input("Enter x position:\n")),
                              int(input("Enter y position:\n")),
                              self.player_ships[key],
                              horizontal)
 
-                if ocean_player.board[positions[1]][positions[0]-1].is_empty == False:
+                if ocean_player.board[positions[1]][positions[0]-1].is_empty is False:
                     print("WRONG CORDS!")
                     continue
 
@@ -61,10 +65,8 @@ class Player:
 
                     is_connect = False
 
-
             self.starting_positions.append(positions)
             os.system('clear')
-
 
             ocean_player.preview_ships(*positions)
             ocean_player.add_ships(*positions)

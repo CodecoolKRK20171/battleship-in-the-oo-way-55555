@@ -2,6 +2,7 @@ class Square:
     '''
     class of Square objects
 
+<<<<<<< HEAD
     Attributes:
     -----------
     row = int
@@ -10,12 +11,13 @@ class Square:
     is_ship = bool
 
     '''
+=======
+>>>>>>> 1c81ecf2333c49203b68c32e211fb2f68b0c21a5
     def __init__(self, row, column):
         self.row = row
         self.column = column
         self.is_empty = True
         self.is_ship = False
-
 
     def fill_square(self):
         '''
@@ -27,9 +29,12 @@ class Square:
     def set_as_ship(self):
         self.is_ship = True
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1c81ecf2333c49203b68c32e211fb2f68b0c21a5
     def __str__(self):
-        h=[]
+        h = []
 
         if self.is_empty:
             mark = ' ~ '
@@ -39,10 +44,7 @@ class Square:
                 mark = ' X '
                 h.append(mark)
 
-
-
             else:
                 mark = ' 0 '
-
 
         return mark

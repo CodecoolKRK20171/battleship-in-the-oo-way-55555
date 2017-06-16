@@ -38,19 +38,18 @@ def main():
         os.system('clear')
         print("GOOD LUCK")
         while True:
+            radius = range(1,11)
             print("==================================")
             print("Your ships")
             print("==================================")
             print(ocean_player)
             shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
-
+            if shot[0] not in radius or shot [1] not in radius:
+                continue
             os.system('clear')
             ocean_player.shot(shot[0],shot[1])
 
 
-
-            ocean_player2.fill_board_shot()
-            print(ocean_player2)
 
     else:
         print('Wrong sign, try again')

@@ -31,6 +31,9 @@ class Player:
                     horizontal = True
                 elif horizontal == "2":
                     horizontal = False
+                else:
+                    continue
+
 
                 positions = (int(input("Enter x position:\n")),
                              int(input("Enter y position:\n")),

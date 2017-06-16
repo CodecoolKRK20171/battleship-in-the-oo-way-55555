@@ -13,7 +13,7 @@ class Ocean:
         #self.fill_board()
         self.hp = 0
         self.board = self.fill_board()
-        self.health_points = 2
+        self.health_points = 17
 
     def __str__(self):
         ocean_str = ""

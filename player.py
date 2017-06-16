@@ -15,30 +15,44 @@ class Player:
 
     def starting_positions_ships(self):
         ocean_player = Ocean()
-
+        os.system('clear')
+        print(ocean_player)
         for key in self.player_ships:
 
             print("Enter coordinates of" + " " + key)
             print("(1) Horizontal\n(2) Vertical")
 
-            horizontal = input("Select direction:\n")
+            is_connect = True
+            while is_connect:
 
-            if horizontal == "1":
-                horizontal = True
-            elif horizontal == "2":
-                horizontal = False
+                horizontal = input("Select direction:\n")
 
-            positions = (int(input("Enter x position:\n")),
-                         int(input("Enter y position:\n")),
-                         self.player_ships[key],
-                         horizontal)
+                if horizontal == "1":
+                    horizontal = True
+                elif horizontal == "2":
+                    horizontal = False
+
+                positions = (int(input("Enter x position:\n")),
+                             int(input("Enter y position:\n")),
+                             self.player_ships[key],
+                             horizontal)
+
+                if ocean_player.board[positions[1]][positions[0]-1].is_empty == False:
+                    print("WRONG CORDS!")
+                    continue
+
+                else:
+
+                    is_connect = False
+
 
             self.starting_positions.append(positions)
+            os.system('clear')
 
-            ocean_player.add_ship(*positions)
-            ocean_player.fill_board()
+
+            ocean_player.preview_ships(*positions)
+            ocean_player.add_ships(*positions)
+
             print(ocean_player)
-        #print("dupa")
 
-        print(self.starting_positions)
         return self.starting_positions

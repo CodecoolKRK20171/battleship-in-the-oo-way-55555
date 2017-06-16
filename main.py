@@ -24,7 +24,9 @@ def main():
 
         new_player = input("Enter name of player 1:\n")
 
+
         statek = player.Player(new_player)
+
 
         nowe_statki = statek.starting_positions_ships()
 

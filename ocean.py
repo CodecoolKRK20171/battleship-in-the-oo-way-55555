@@ -48,16 +48,26 @@ class Ocean:
         '''
         Method to preview ships coordinates
         '''
+
+        is_hor_good = all([self.board[position_y][position_x-1+j].is_empty for j in range(size)])
+
+        is_ver_good = all([self.board[position_y+j][position_x-1].is_empty for j in range(size)])
+
+        if is_hor_good == False or is_ver_good == False:
+            print("zle")
+
         for i in range(size):
 
             if is_horizontal:
-                self.board[position_y][position_x-1].fill_square()
-                self.board[position_y][position_x-1].set_as_ship()
-                position_x += 1
+                if is_hor_good:
+                    self.board[position_y][position_x-1].fill_square()
+                    self.board[position_y][position_x-1].set_as_ship()
+                    position_x += 1
             else:
-                self.board[position_y][position_x-1].fill_square()
-                self.board[position_y][position_x-1].set_as_ship()
-                position_y += 1
+                if is_ver_good:
+                    self.board[position_y][position_x-1].fill_square()
+                    self.board[position_y][position_x-1].set_as_ship()
+                    position_y += 1
 
 
     def add_ships(self, position_x, position_y, size, is_horizontal=False):

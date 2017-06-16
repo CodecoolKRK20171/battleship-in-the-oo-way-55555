@@ -22,6 +22,7 @@ class Player:
         for key in self.player_ships:
 
             print("Enter coordinates of" + " " + key)
+            print("(1) Horizontal\n(2) Vertical")
 
             is_connect = True
             while is_connect:
@@ -32,6 +33,8 @@ class Player:
                     horizontal = True
                 elif horizontal == "2":
                     horizontal = False
+                else:
+                    continue
 
                 positions = (int(input("Enter x position:\n")),
                              int(input("Enter y position:\n")),

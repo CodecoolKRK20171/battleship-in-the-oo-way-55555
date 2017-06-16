@@ -51,6 +51,8 @@ def main():
                 print("==================================")
                 print(ocean_player1)
                 shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
+                if shot[0] not in radius or shot[1] not in radius:
+                    continue
 
                 os.system('clear')
                 ocean_player1.shot(shot[0], shot[1])
@@ -63,6 +65,8 @@ def main():
                 print("==================================")
                 print(ocean_player2)
                 shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
+                if shot[0] not in radius or shot[1] not in radius:
+                    continue
 
                 os.system('clear')
                 ocean_player2.shot(shot[0], shot[1])

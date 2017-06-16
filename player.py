@@ -23,16 +23,10 @@ class Player:
         return self.name
 
     def starting_positions_ships(self):
-<<<<<<< HEAD
         '''
         Method to put starting coordinate on board
         '''
-=======
-        """ Method take starting coordintes of ship from user and return tuple"""
-
->>>>>>> 1c81ecf2333c49203b68c32e211fb2f68b0c21a5
         ocean_player = Ocean()
-
         os.system('clear')
         print(ocean_player)
         for key in self.player_ships:

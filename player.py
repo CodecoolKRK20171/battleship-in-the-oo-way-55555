@@ -3,6 +3,16 @@ import os
 
 
 class Player:
+    '''
+    class of Player objects
+
+    Attributes:
+    -----------
+    name = str
+    player_ships = dict
+    starting_positions = list
+
+    '''
 
     def __init__(self, name):
         self.name = name
@@ -14,6 +24,9 @@ class Player:
         return self.name
 
     def starting_positions_ships(self):
+        '''
+        Method to put starting coordinate on board
+        '''
         ocean_player = Ocean()
         os.system('clear')
         print(ocean_player)

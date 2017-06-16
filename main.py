@@ -20,15 +20,9 @@ def main():
 
     if chose_number == '1':
         os.system('clear')
-
-
         new_player = input("Enter name of player 1:\n")
-
         statek = player.Player(new_player)
-
         nowe_statki = statek.starting_positions_ships()
-
-
         ocean_player = Ocean()
         for s in nowe_statki:
             ocean_player.add_ships(*s)

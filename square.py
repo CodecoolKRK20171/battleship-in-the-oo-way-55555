@@ -1,8 +1,15 @@
 class Square:
+    '''
+    class of Square objects
 
+    Attributes:
+    -----------
+    row = int
+    column = int
+    is_empty = bool
+    is_ship = bool
 
-
-
+    '''
     def __init__(self, row, column):
         self.row = row
         self.column = column
@@ -11,11 +18,14 @@ class Square:
 
 
     def fill_square(self):
+        '''
+        Method to fill boad with square
+        '''
         self.is_empty = False
+
 
     def set_as_ship(self):
         self.is_ship = True
-
 
 
     def __str__(self):

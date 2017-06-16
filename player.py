@@ -1,25 +1,27 @@
 from ocean import Ocean
+import os
 
 
 class Player:
 
     def __init__(self, name):
         self.name = name
-        self.player_ships = {"Carrier(5)": 5}
-        """Battleship(4)": 4, "Cruiser(3)": 3, "Submarine(3)": 3, "Destroyer(3)": 2}"""
+        self.player_ships = {"Carrier(5)": 5, "Battleship(4)": 4, "Cruiser(3)": 3, "Submarine(3)": 3, "Destroyer(3)": 2}
         self.starting_positions = []
 
     def __str__(self):
         return self.name
 
     def starting_positions_ships(self):
+        """ Method take starting coordintes of ship from user and return tuple"""
+
         ocean_player = Ocean()
+
         os.system('clear')
         print(ocean_player)
         for key in self.player_ships:
 
             print("Enter coordinates of" + " " + key)
-
 
             is_connect = True
             while is_connect:
@@ -36,7 +38,7 @@ class Player:
                              self.player_ships[key],
                              horizontal)
 
-                if ocean_player.board[positions[1]][positions[0]-1].is_empty == False:
+                if ocean_player.board[positions[1]][positions[0]-1].is_empty is False:
                     print("WRONG CORDS!")
                     continue
 
@@ -44,17 +46,12 @@ class Player:
 
                     is_connect = False
 
-
-
             self.starting_positions.append(positions)
             os.system('clear')
-
 
             ocean_player.preview_ships(*positions)
             ocean_player.add_ships(*positions)
 
-
             print(ocean_player)
-
 
         return self.starting_positions

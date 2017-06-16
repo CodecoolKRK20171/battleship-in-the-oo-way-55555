@@ -21,36 +21,52 @@ def main():
     if chose_number == '1':
         os.system('clear')
 
+        new_player1 = input("Enter name of player 1:\n")
+        new_player2 = input("Enter name of player 2:\n")
 
-        new_player = input("Enter name of player 1:\n")
+        ship1 = player.Player(new_player1)
+        new_ships1 = ship1.starting_positions_ships()
 
-        statek = player.Player(new_player)
+        ocean_player1 = Ocean()
+        for s in new_ships1:
+            ocean_player1.add_ships(*s)
 
-        nowe_statki = statek.starting_positions_ships()
+        ship2 = player.Player(new_player2)
+        new_ships2 = ship2.starting_positions_ships()
 
-
-        ocean_player = Ocean()
-        for s in nowe_statki:
-            ocean_player.add_ships(*s)
-
-
+        ocean_player2 = Ocean()
+        for s in new_ships2:
+            ocean_player2.add_ships(*s)
 
         os.system('clear')
         print("GOOD LUCK")
         while True:
-            print("==================================")
-            print("Your ships")
-            print("==================================")
-            print(ocean_player)
-            shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
 
-            os.system('clear')
-            ocean_player.shot(shot[0],shot[1])
+            turn = 1
 
+            while turn == 1:
+                radius = range(1, 11)
+                print("==================================")
+                print("Your ships")
+                print("==================================")
+                print(ocean_player1)
+                shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
 
+                os.system('clear')
+                ocean_player1.shot(shot[0], shot[1])
+                turn = 2
 
-            ocean_player2.fill_board_shot()
-            print(ocean_player2)
+            while turn == 2:
+                radius = range(1, 11)
+                print("==================================")
+                print("Your ships")
+                print("==================================")
+                print(ocean_player2)
+                shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
+
+                os.system('clear')
+                ocean_player2.shot(shot[0], shot[1])
+                break
 
     else:
         print('Wrong sign, try again')

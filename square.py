@@ -1,14 +1,10 @@
 class Square:
 
-
-
-
     def __init__(self, row, column):
         self.row = row
         self.column = column
         self.is_empty = True
         self.is_ship = False
-
 
     def fill_square(self):
         self.is_empty = False
@@ -16,10 +12,8 @@ class Square:
     def set_as_ship(self):
         self.is_ship = True
 
-
-
     def __str__(self):
-        h=[]
+        h = []
 
         if self.is_empty:
             mark = ' ~ '
@@ -29,10 +23,7 @@ class Square:
                 mark = ' X '
                 h.append(mark)
 
-
-
             else:
                 mark = ' 0 '
-
 
         return mark

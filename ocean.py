@@ -1,12 +1,15 @@
 from ship import Ship
+
 from square import Square
 import sys
+
 
 class Ocean:
 
 
     def __init__(self):
         self.ships = []
+
         #self.fill_board()
         self.hp = 0
         self.board = self.fill_board()
@@ -39,6 +42,7 @@ class Ocean:
                 self.board[position_y][position_x-1].fill_square()
                 self.board[position_y][position_x-1].set_as_ship()
                 position_y += 1
+
 
 
 
@@ -81,8 +85,10 @@ class Ocean:
 
 
 
+
     def fill_board(self):
-        self.board=[]
+        self.board = []
+
 
         letters = [' A ', ' B ', ' C ', ' D ', ' E ', ' F ', ' G ', ' H ', ' I ', ' J ']
         self.board.append(letters)

@@ -1,6 +1,4 @@
 from ocean import Ocean
-import ship
-import square
 import player
 import os
 
@@ -22,6 +20,7 @@ def main():
 
     if chose_number == '1':
         os.system('clear')
+
 
         new_player = input("Enter name of player 1:\n")
 
@@ -49,9 +48,9 @@ def main():
             ocean_player.shot(shot[0],shot[1])
 
 
-        print("===================================================")
-        print("Try hit ship of your opponent")
-        print("===================================================")
+
+            ocean_player2.fill_board_shot()
+            print(ocean_player2)
 
     else:
         print('Wrong sign, try again')

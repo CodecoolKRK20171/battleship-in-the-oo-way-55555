@@ -46,8 +46,23 @@ class Player:
                 else:
                     continue
 
-                positions = (int(input("Enter x position:\n")),
-                             int(input("Enter y position:\n")),
+                numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+                position_x = input("Enter x position:")
+
+                while position_x not in numbers:
+                    position_x = input("Enter x position:")
+
+                position_y = input("Enter y position:")
+
+                while position_y not in numbers:
+                    position_y = input("Enter y position:")
+
+                position_x = int(position_x)
+                position_y = int(position_y)
+
+                positions = (position_x,
+                             position_y,
                              self.player_ships[key],
                              horizontal)
 

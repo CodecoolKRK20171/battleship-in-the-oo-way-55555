@@ -1,64 +1,60 @@
 from ocean import Ocean
+import os
 
 
 class Player:
 
     def __init__(self, name):
         self.name = name
-        self.player_ships = {"Carrier(5)": 5}
-        """Battleship(4)": 4, "Cruiser(3)": 3, "Submarine(3)": 3, "Destroyer(3)": 2}"""
+        self.player_ships = {"Carrier(5)": 5} # "Battleship(4)": 4, "Cruiser(3)": 3, "Submarine(3)": 3, "Destroyer(3)": 2}
         self.starting_positions = []
 
     def __str__(self):
         return self.name
 
     def starting_positions_ships(self):
+        """ Method take starting coordintes of ship from user and return tuple"""
+
         ocean_player = Ocean()
 
+        os.system('clear')
+        print(ocean_player)
         for key in self.player_ships:
 
             print("Enter coordinates of" + " " + key)
+            print("(1) Horizontal\n(2) Vertical")
 
-            while True:
-                print("(1) Horizontal\n(2) Vertical")
+            is_connect = True
+            while is_connect:
 
                 horizontal = input("Select direction:\n")
 
                 if horizontal == "1":
                     horizontal = True
-                    break
                 elif horizontal == "2":
                     horizontal = False
-                    break
                 else:
                     continue
 
-            while True:
-                pos_x = input("Enter x position (A-J):\n").upper()
-                list_x = {"A":1,"B":2,"C":3,"D":4,"E":5,"F":6,"G":7,"H":8,"I":9,"J":10}
-                if pos_x in list_x:
-                    pos_x = list_x[pos_x]
-                    break
-                else:
+                positions = (int(input("Enter x position:\n")),
+                             int(input("Enter y position:\n")),
+                             self.player_ships[key],
+                             horizontal)
+
+                if ocean_player.board[positions[1]][positions[0]-1].is_empty is False:
+                    print("WRONG CORDS!")
                     continue
 
-            while True:
-                pos_y = int(input("Enter y position(1-10):\n"))
-                if pos_y > 10 or pos_y <= 0:
-                    continue
                 else:
-                    break
 
-            positions = (pos_x, pos_y, self.player_ships[key], horizontal)
-            print(positions)
+                    is_connect = False
 
             self.starting_positions.append(positions)
+            os.system('clear')
 
-            print("\n")
-            ocean_player.add_ship(*positions)
-            ocean_player.fill_board()
+            ocean_player.preview_ships(*positions)
+            ocean_player.add_ships(*positions)
+
             print(ocean_player)
-            print("\n")
-            pauza = input()
 
         return self.starting_positions

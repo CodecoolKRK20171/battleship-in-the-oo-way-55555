@@ -21,49 +21,64 @@ def main():
     if chose_number == '1':
         os.system('clear')
 
-        player1 = input("Enter name of player 1:\n")
-        player2 = input("Enter name of player 2:\n")
+        new_player1 = input("Enter name of player 1:\n")
+        new_player2 = input("Enter name of player 2:\n")
 
-        if player1 == player1:
+        ship1 = player.Player(new_player1)
+        new_ships1 = ship1.starting_positions_ships()
 
-            ocean_player1 = Ocean()
-            player1_board = player.Player(player1)
-            add_ships = player1_board.starting_positions_ships()
+        ocean_player1 = Ocean()
+        for s in new_ships1:
+            ocean_player1.add_ships(*s)
 
-            for ships in add_ships:
-                ocean_player1.add_ship(*ships)
-            ocean_player1.fill_board()
+        ship2 = player.Player(new_player2)
+        new_ships2 = ship2.starting_positions_ships()
+
+        ocean_player2 = Ocean()
+        for s in new_ships2:
+            ocean_player2.add_ships(*s)
 
         os.system('clear')
-
-        if player2 == player2:
-
-            ocean_player2 = Ocean()
-            player2_board = player.Player(player2)
-            add_ships = player2_board.starting_positions_ships()
-
-            for ships in add_ships:
-                ocean_player2.add_ship(*ships)
-            ocean_player2.fill_board()
-
+        print("GOOD LUCK")
         while True:
-            os.system('clear')
-            print("===================================================")
-            print("Try hit ship of your opponent")
-            print("===================================================")
-            print(ocean_player2)
 
-            print("===================================================")
-            print("Your ships")
-            print("===================================================")
-            print(ocean_player1)
+            turn = 1
 
-            print("Enter coordinates to fire commander!")
-            turn_player1 = (int(input("Enter x coordinate:\n")), int(input("Enter y coordinate:\n")))
-            ocean_player2.shot(*turn_player1)
+            while turn == 1:
+                radius = range(1, 11)
+                print("==================================")
+                print("Your ships", new_player1)
+                print("==================================")
+                print(ocean_player1)
+                shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
+                if shot[0] not in radius or shot[1] not in radius:
+                    continue
 
-            ocean_player2.fill_board_shot()
-            print(ocean_player2)
+                os.system('clear')
+                ocean_player1.shot(shot[0], shot[1])
+                print(ocean_player1)
+                pauza = input()
+                os.system('clear')
+
+                turn = 2
+
+            while turn == 2:
+                radius = range(1, 11)
+                print("==================================")
+                print("Your ships", new_player2)
+                print("==================================")
+                print(ocean_player2)
+                shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
+                if shot[0] not in radius or shot[1] not in radius:
+                    continue
+
+                os.system('clear')
+                ocean_player2.shot(shot[0], shot[1])
+                print(ocean_player2)
+                pauza = input()
+                os.system('clear')
+
+                break
 
     else:
         print('Wrong sign, try again')

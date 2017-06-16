@@ -1,63 +1,81 @@
 from ship import Ship
 
+from square import Square
+import sys
+
 
 class Ocean:
 
     def __init__(self):
         self.ships = []
-        self.board = []
-        self.shots = []
+        self.hp = 0
+        self.board = self.fill_board()
+        self.health_points = 17
 
     def __str__(self):
-        letters = [' A', ' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J']
-        print(' '.join(letters))
-        return '\n'.join([''.join(row) for row in self.board])
+        ocean_str = ""
+        i = -1
+        for lista in self.board:
+            i += 1
+            ocean_str += '|'
+            for item in lista:
+                ocean_str += str(item)
+            ocean_str += '|' + str(i) + "|" + '\n'
 
-    def add_ship(self, position_x, position_y, size, is_horizontal=False):
-        positions = []
+        return ocean_str
 
-        for i in range(size-1):
-            positions.append((position_x-1, position_y-1))
+    def preview_ships(self, position_x, position_y, size, is_horizontal=False):
+        """Display board during putting ships on player ocean/board"""
+
+        for i in range(size):
+
             if is_horizontal:
+                self.board[position_y][position_x-1].fill_square()
+                self.board[position_y][position_x-1].set_as_ship()
                 position_x += 1
             else:
+                self.board[position_y][position_x-1].fill_square()
+                self.board[position_y][position_x-1].set_as_ship()
                 position_y += 1
-            positions.append((position_x-1, position_y-1))
 
-        positions = tuple(positions)
-        self.ships.append(Ship(positions))
+    def add_ships(self, position_x, position_y, size, is_horizontal=False):
+        """Method take starting position of ship and append it to ocean board"""
+
+        for i in range(size):
+
+            if is_horizontal:
+
+                self.board[position_y][position_x-1].set_as_ship()
+                position_x += 1
+
+            else:
+                self.board[position_y][position_x-1].set_as_ship()
+                position_y += 1
 
     def shot(self, position_x, position_y):
+        """Method take coordinates to put square on board, check if player hit ship or not and return message
+        Method also check if players still have ships on board"""
 
-        positions = [(position_x-1, position_y-1)]
-        positions = tuple(positions)
-
-        self.shots.append(Ship(positions))
+        self.board[position_y][position_x-1].fill_square()
+        if self.board[position_y][position_x-1].is_ship is False:
+            print("MISS")
+        else:
+            print("HIT !")
+            self.health_points -= 1
+            print(str(self.health_points) + " Health points left")
+            if self.health_points == 0:
+                sys.exit("GAME OVER")
 
     def fill_board(self):
+        """Fill board with X which represents our ships"""
+
         self.board = []
 
-        for i in range(0, 10):
-            self.board.append([' ~ ']*10 + [str(i+1)])
+        letters = [' A ', ' B ', ' C ', ' D ', ' E ', ' F ', ' G ', ' H ', ' I ', ' J ']
+        self.board.append(letters)
+        for i in range(1, 11):
+            self.board.append([])
 
-        for ship in self.ships:
-            for square in ship.squares:
-                self.board[square.column][square.row] = str(square)
-
-    def fill_board_shot(self):
-
-        for shot in self.shots:
-            for square in shot.squares:
-                square.mark_shot()
-
-                if self.board[square.column][square.row] == ' X ':
-
-                    self.board[square.column][square.row] = str(square)
-                    print('We go it commander! You hit the part of ship!')
-                    pauza = input()
-
-                elif self.board[square.column][square.row] == ' ~ ':
-
-                    self.board[square.column][square.row] = str(square)
-                    print('Bad luck commander, this ocean took our ammo!')
-                    pauza = input()
+            for j in range(0, 10):
+                self.board[i].append(Square(i, j))
+        return self.board

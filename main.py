@@ -24,28 +24,30 @@ def main():
         os.system('clear')
 
         new_player = input("Enter name of player 1:\n")
-        # new_player2 = input("Enter name of player 2:\n")
 
         statek = player.Player(new_player)
+
         nowe_statki = statek.starting_positions_ships()
 
+
         ocean_player = Ocean()
-
         for s in nowe_statki:
-            ocean_player.add_ship(*s)
+            ocean_player.add_ships(*s)
 
-        print("===================================================")
-        print("Your ships")
-        print("===================================================")
 
-        ocean_player.fill_board()
-        print(ocean_player)
-        print(" ")
-        shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
-        print(shot)
-        ocean_player.shot(*shot)
-        ocean_player.fill_board()
-        print(ocean_player)
+
+        os.system('clear')
+        print("GOOD LUCK")
+        while True:
+            print("==================================")
+            print("Your ships")
+            print("==================================")
+            print(ocean_player)
+            shot = (int(input("Enter x:\n")), int(input("Enter y:\n")))
+
+            os.system('clear')
+            ocean_player.shot(shot[0],shot[1])
+
 
         print("===================================================")
         print("Try hit ship of your opponent")

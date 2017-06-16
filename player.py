@@ -1,12 +1,13 @@
 from ocean import Ocean
+import os
 
 
 class Player:
 
     def __init__(self, name):
         self.name = name
-        self.player_ships = {"Carrier(5)": 5}
-        """Battleship(4)": 4, "Cruiser(3)": 3, "Submarine(3)": 3, "Destroyer(3)": 2}"""
+        self.player_ships = {"Carrier(5)": 5, "Battleship(4)": 4, "Cruiser(3)": 3,
+                             "Submarine(3)": 3, "Destroyer(3)": 2}
         self.starting_positions = []
 
     def __str__(self):
@@ -19,7 +20,7 @@ class Player:
         for key in self.player_ships:
 
             print("Enter coordinates of" + " " + key)
-
+            print("(1) Horizontal\n(2) Vertical")
 
             is_connect = True
             while is_connect:
@@ -45,7 +46,6 @@ class Player:
                     is_connect = False
 
 
-
             self.starting_positions.append(positions)
             os.system('clear')
 
@@ -53,8 +53,6 @@ class Player:
             ocean_player.preview_ships(*positions)
             ocean_player.add_ships(*positions)
 
-
             print(ocean_player)
-
 
         return self.starting_positions
